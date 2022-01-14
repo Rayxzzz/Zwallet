@@ -5,6 +5,7 @@ import Footer from '../Component/Footer'
 import ListUser from '../Component/Transfer/ListUser'
 import { useEffect, useState } from 'react/cjs/react.development'
 import { useNavigate } from 'react-router-dom'
+import { allUser } from '../../Helper/home'
 import axios from 'axios'
 
 const SearchUser = () => {
@@ -15,7 +16,7 @@ const SearchUser = () => {
    const navigate = useNavigate()
 
     useEffect(()=>{
-        axios.get('https://zwallet-ridho.herokuapp.com/admin/users-list')
+        allUser()
         .then((res) => {
             console.log(res)
             setData({

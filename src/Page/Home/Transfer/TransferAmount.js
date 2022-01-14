@@ -4,6 +4,7 @@ import Navbar from '../Component/Navbar'
 import Footer from '../Component/Footer'
 import axios from 'axios'
 import AmountTransfer from '../Component/Transfer/AmountTransfer'
+import { makeInvoice } from '../../Helper/home'
 import { useState } from 'react/cjs/react.development'
 import { useParams , useNavigate} from 'react-router-dom'
 
@@ -19,7 +20,7 @@ const TransferAmount = () => {
     }
 
     const handleClick = (e) => {
-        axios.post(`https://zwallet-ridho.herokuapp.com/user/${user.user_id}/transaction`,{
+        makeInvoice(user.user_id, {
             receiver : Number(params.id),
             amount : value
         })

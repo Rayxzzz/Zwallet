@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react/cjs/react.development'
 import { useParams , useNavigate} from 'react-router-dom'
+import { profile } from '../../../Helper/home'
 
 const Receiver = (props) => {
     const [receiver, setReceiver] = useState({
@@ -11,7 +12,7 @@ const Receiver = (props) => {
     })
     
     useEffect(()=>{
-        axios.get(`https://zwallet-ridho.herokuapp.com/user/${props.id}`)
+        profile(props.id)
         .then(res => {
             setReceiver({
                 name : res.data[0].Name,

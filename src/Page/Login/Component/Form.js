@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { axiosInstance } from '../../Helper/axios'
+import { login , balance} from '../../Helper/auth'
 
 
 const Form = () => {
@@ -21,19 +23,18 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.get(`https://zwallet-ridho.herokuapp.com/user/${form.email}/balance`)
+        balance(form.email)
         .then((res) => {
             localStorage.setItem('balance', res.data.data[0].balance)
         })
-        .then((err) => {
+        .catch((err) => {
             console.log(err)
         })
 
-        axios.post('https://zwallet-ridho.herokuapp.com/auth/login', 
-        {
-            id: form.email,
-            password:  form.password
-        })
+        login({
+                id: form.email,
+                password:  form.password
+            })
         .then((res) => {
             const result = res.data.data[0]
             console.log(result)

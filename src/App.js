@@ -10,6 +10,7 @@ import SearchUser from './Page/Home/Transfer/SearchUser';
 import TransferAmount from './Page/Home/Transfer/TransferAmount';
 import Confirmation from './Page/Home/Transfer/Confirmation'
 import Profile from './Page/Home/Profile'
+import Pin from './Page/Create Pin/Pin'
 import Page404 from './Page/Page404';
 import RequireAuth from './RequireAuth';
 
@@ -19,6 +20,8 @@ function App() {
       <Routes>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
+          <Route path='/register/pin' element={<Pin/>}/>
+          <Route path='/confirm' element={<Confirmation/>}/>
           <Route path='/' element={
           <RequireAuth>
             <Dashboard/>

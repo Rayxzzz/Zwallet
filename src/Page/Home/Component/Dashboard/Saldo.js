@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React from 'react'
+import { topup } from '../../../Helper/home'
 
 const Saldo = (props) => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -9,7 +9,7 @@ const Saldo = (props) => {
         let text = prompt('input value', '')
         console.log(text)
 
-        axios.put(`https://zwallet-ridho.herokuapp.com/user/${user.user_id}/top-up`,{
+        topup(user.user_id, {
             balance : Number(text)
         })
         .then((res) => {

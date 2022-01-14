@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import {Link, useNavigate} from 'react-router-dom'
+import { register } from '../../Helper/auth'
 import axios from 'axios'
 
 
@@ -20,8 +21,7 @@ const Form = () => {
     }
 
     const handleClick = (e) => {
-        axios.post('https://zwallet-ridho.herokuapp.com/auth/register',
-        {
+        register({
             email: form.email, 
             password: form.password,
             name: form.user,
@@ -64,9 +64,8 @@ const Form = () => {
                 onChange={handleChange}
                 />
             </div>
-            <Link to='/login' className="text-end mt-4 flex-fill">Forgot password?</Link>
-            <button className='btn-login mt-5' onClick={handleClick}>Login</button>
-            <p className="text-center mt-4">Don’t have an account? Let’s <Link to='/register'>Sign up</Link></p>
+            <button className='btn-login mt-5' onClick={handleClick}>Sign Up</button>
+            <p className="text-center mt-4">Already have an account? Let’s <Link to='/register'>Login</Link></p>
         </div>
         </Fragment>
     )

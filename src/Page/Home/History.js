@@ -5,7 +5,7 @@ import Footer from './Component/Footer'
 import ListHistory from './Component/History/ListHistory'
 import './home.css'
 import { useEffect, useState } from 'react/cjs/react.development'
-import axios from 'axios'
+import { transactionHistory } from '../Helper/home'
 
 
 const History = () => {
@@ -17,13 +17,11 @@ const History = () => {
     
     
     useEffect(() => {
-        axios.get(`https://zwallet-ridho.herokuapp.com/user/${user.user_id}/transaction/history`)
+        transactionHistory(user.user_id)
         .then((res) => {
-            // console.log(res.data.data)
             setData({
                 data : res.data.data
             })
-            // console.log(data)
         })
         .catch((err) => {
             console.log(err.response)
