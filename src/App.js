@@ -2,15 +2,15 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
-import Login from './Page/Login/Login';
-import Register from './Page/Sign Up/Register'
+import Login from './Page/Auth/Login/Login';
+import Register from './Page/Auth/Sign Up/Register'
 import Dashboard from './Page/Home/Dashboard';
 import History from './Page/Home/History';
 import SearchUser from './Page/Home/Transfer/SearchUser';
 import TransferAmount from './Page/Home/Transfer/TransferAmount';
 import Confirmation from './Page/Home/Transfer/Confirmation'
 import Profile from './Page/Home/Profile'
-import Pin from './Page/Create Pin/Pin'
+import Pin from './Page/Auth/Create Pin/Pin'
 import Page404 from './Page/Page404';
 import RequireAuth from './RequireAuth';
 

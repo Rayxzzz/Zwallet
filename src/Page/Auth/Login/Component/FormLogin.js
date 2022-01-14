@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import {Link, useNavigate} from 'react-router-dom'
-import axios from 'axios'
-import { axiosInstance } from '../../Helper/axios'
-import { login , balance} from '../../Helper/auth'
+import { login , balance} from '../../../Helper/auth'
 
 
-const Form = () => {
+const FormLogin = () => {
     const [form, setForm] = useState({
         email : '',
         password : ''
@@ -77,4 +75,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default FormLogin

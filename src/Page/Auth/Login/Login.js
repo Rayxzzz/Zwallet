@@ -1,6 +1,6 @@
 import React from 'react'
 import './login.css'
-import Leftside from './Component/LeftSide'
+import Leftside from '../LeftSide'
 import RightSide from './Component/RightSide'
 
 function Login() {

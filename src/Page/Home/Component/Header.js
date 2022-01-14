@@ -2,7 +2,12 @@ import React from 'react'
 
 const Header = (props) => {
     const user = JSON.parse(localStorage.getItem('user'))
-
+    var phone
+    if(user.phone === 1){
+        phone = <p style={{ color: '#7A7886' }}>not registered</p>
+    } else{
+        phone = <p style={{ color: '#7A7886' }}>+{user.phone}</p>
+    }
 
     return (
         <div className="header d-flex justify-content-center bg-secondary w-100 bg-light">
@@ -14,7 +19,7 @@ const Header = (props) => {
                     <img src='https://i.pinimg.com/236x/7f/39/f0/7f39f0ad4dd6b777ab72bc7dc3b91958.jpg' className='border1' width='52px' alt="" />
                     <div className="h-100 d-flex flex-column justify-content-center align-items-center">
                         <h5 className="mt-3" style={{ color: "#3A3D42" }}>{user.Name}</h5>
-                        <p style={{ color: '#7A7886' }}>+{user.phone}</p>
+                        {phone}
                     </div>
                     <img src="image/bell.png" alt="" />
                 </section>

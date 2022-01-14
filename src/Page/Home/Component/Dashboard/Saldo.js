@@ -7,18 +7,24 @@ const Saldo = (props) => {
 
     const handleClick = () => {
         let text = prompt('input value', '')
-        console.log(text)
-
-        topup(user.user_id, {
-            balance : Number(text)
-        })
-        .then((res) => {
-            alert(res.data.message)
-            localStorage.setItem('balance', Number(balance) + Number(text))
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+        let value = String(text).split(' ')[0]
+        console.log(value)
+        if(text === ''){
+          return alert('top-up failed')
+        } else if (text <= 0 || value === '0' ){
+          return alert('top-up failed')
+        } else{
+            topup(user.user_id, {
+                balance : Number(text)
+            })
+            .then((res) => {
+                alert(res.data.message)
+                localStorage.setItem('balance', Number(balance) + Number(text))
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
     }
 
 

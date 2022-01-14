@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form'
+import FormPin from './FormPin'
 
 const RightSide = () => {
     return (
@@ -16,7 +16,7 @@ const RightSide = () => {
                             Create 6 digits pin to secure all your money and your data in Zwallet app. Keep it secret and don’t tell anyone about your Zwallet account password and the PIN.
                         </p>
                     </div>
-                    <Form />
+                    <FormPin />
                 </div>
             </div>
         </div>

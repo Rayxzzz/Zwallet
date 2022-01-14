@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form'
+import FormLogin from './FormLogin'
 
 const RightSide = () => {
     return (
@@ -18,7 +18,7 @@ const RightSide = () => {
                         we cover all of that for you!
                     </p>
                 </div>
-                <Form/>
+                <FormLogin/>
                 </div>
             </div>
         </div>

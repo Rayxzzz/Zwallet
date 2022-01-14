@@ -4,7 +4,7 @@
 }
 
 .left{
-    background-image: url('../../../public/image/background-left.svg');
+    background-image: url('../../../../public/image/background-left.svg');
 }
 
 .btn-login{
@@ -21,7 +21,7 @@
     outline: none;
     border: none;
     border-bottom: 2px solid #A9A9A9;
-    background: url("../../../public/image/mail.png") 2% 20% no-repeat;
+    background: url("../../../../public/image/mail.png") 2% 20% no-repeat;
 }
 
 .password{
@@ -30,7 +30,7 @@
     outline: none;
     border: none;
     border-bottom: 2px solid #A9A9A9;
-    background: url("../../../public/image/lock.png") 2% 20% no-repeat, url("../../../public/image/eye-crossed.png") 95% 20% no-repeat;
+    background: url("../../../../public/image/lock.png") 2% 20% no-repeat, url("../../../../public/image/eye-crossed.png") 95% 20% no-repeat;
 }
 
 .username{
@@ -39,5 +39,5 @@
     outline: none;
     border: none;
     border-bottom: 2px solid #A9A9A9;
-    background: url("../../../public/image/person.png") 2% 20% no-repeat;
+    background: url("../../../../public/image/person.png") 2% 20% no-repeat;
 }
