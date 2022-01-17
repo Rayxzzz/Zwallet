@@ -1,9 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react/cjs/react.development'
 import { topup } from '../../../Helper/home'
 
 const Saldo = (props) => {
     const user = JSON.parse(localStorage.getItem('user'))
     const balance = localStorage.getItem('balance')
+    // useEffect(()=>{
+    //     balance(user.user_id)
+    //         .then((res) => {
+    //             localStorage.setItem('balance', res.data.data[0].balance)
+    //         })
+    //         .catch((err) => {
+    //             console.log(err)
+    //         })
+    // },[])
 
     let phone
     if(user.phone === 1){
