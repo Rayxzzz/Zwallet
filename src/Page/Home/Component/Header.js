@@ -2,11 +2,11 @@ import React from 'react'
 
 const Header = (props) => {
     const user = JSON.parse(localStorage.getItem('user'))
-    var phone
+    let phone
     if(user.phone === 1){
-        phone = <p style={{ color: '#7A7886' }}>not registered</p>
+        phone = <p style={{ color: '#7A7886' }} className='mt-0'>not registered</p>
     } else{
-        phone = <p style={{ color: '#7A7886' }}>+{user.phone}</p>
+        phone = <p style={{ color: '#7A7886' }} className='mt-0'>+62{user.phone}</p>
     }
 
     return (

@@ -1,7 +1,17 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ProfileChild = () => {
     const user = JSON.parse(localStorage.getItem('user'))
+    const navigate = useNavigate()
+
+    const personalInfo = () => {
+        navigate('/profile/info')
+    }
+
+    const changePin = () => {
+        navigate('/profile/pin')
+    }
 
     return (
         <div className='w-75 d-flex flex-column align-items-center'>
@@ -17,9 +27,9 @@ const ProfileChild = () => {
                 </div>
             </div>
             <div className='w-25 d-flex flex-column align-items-center'>
-                <img src="image/profilenav1.png" className='' width='400px' style={{ cursor: 'pointer' }} alt="" />
+                <img src="image/profilenav1.png" className='' width='400px' style={{ cursor: 'pointer' }} alt="" onClick={personalInfo}/>
                 <img src="image/profilenav2.png" className='mt-3' width='400px' style={{ cursor: 'pointer' }} alt="" />
-                <img src="image/profilenav3.png" className='mt-3' width='400px' style={{ cursor: 'pointer' }} alt="" />
+                <img src="image/profilenav3.png" className='mt-3' width='400px' style={{ cursor: 'pointer' }} alt="" onClick={changePin}/>
                 <img src="image/profilenav4.png" className='mt-3' width='400px' style={{ cursor: 'pointer' }} alt="" />
             </div>
         </div>

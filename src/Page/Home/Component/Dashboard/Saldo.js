@@ -5,6 +5,13 @@ const Saldo = (props) => {
     const user = JSON.parse(localStorage.getItem('user'))
     const balance = localStorage.getItem('balance')
 
+    let phone
+    if(user.phone === 1){
+        phone = <p className="pt-2">not registered</p>
+    } else{
+        phone = <p className="pt-2">+62{props.phone}</p>
+    }
+
     const handleClick = () => {
         let text = prompt('input value', '')
         let value = String(text).split(' ')[0]
@@ -34,7 +41,7 @@ const Saldo = (props) => {
                 <div className="right w-30 h-75 ms-5 pt-3 text-white">
                     <p>Balance</p>
                     <h3>Rp.{props.balance}</h3>
-                    <p className="pt-2">+{props.phone}</p>
+                    {phone}
                 </div>
                 <div className="left w-30 h-75 me-5 d-flex flex-column justify-content-around align-items-end">
                     <button className="btn1 btn w-75 h-30 fs-5 border border-light text-white">Transfer</button>

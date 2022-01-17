@@ -32,3 +32,11 @@ export const allUser  = () => {
 export const profile = (id) => {
     return axiosInstance.get(`/user/${id}`)
 }
+
+export const changePin = (id, data) => {
+    return axiosInstance.put(`/user/${id}/profile/pin`, data)
+}
+
+export const changePhone = (id, data) => {
+    return axiosInstance.put(`/user/${id}/profile/phone`, data)
+}

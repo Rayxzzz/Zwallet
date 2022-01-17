@@ -32,3 +32,13 @@
     border-bottom: 2px solid #A9A9A9;
     background: url("../../../../public/image/lock.png") 2% 20% no-repeat, url("../../../../public/image/eye-crossed.png") 95% 20% no-repeat;
 }
+
+
+.phone{
+    padding-left: 20%;
+    padding-bottom: 1%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #A9A9A9;
+    background: url("../../../../public/image/phone.png") 2% 20% no-repeat;
+}

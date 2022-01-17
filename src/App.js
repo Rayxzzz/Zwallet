@@ -10,6 +10,9 @@ import SearchUser from './Page/Home/Transfer/SearchUser';
 import TransferAmount from './Page/Home/Transfer/TransferAmount';
 import Confirmation from './Page/Home/Transfer/Confirmation'
 import Profile from './Page/Home/Profile'
+import ChangePin from './Page/Home/ChangePin';
+import DetailProfile from './Page/Home/DetailProfile';
+import ChangePhone from './Page/Home/ChangePhone';
 import Pin from './Page/Auth/Create Pin/Pin'
 import Page404 from './Page/Page404';
 import RequireAuth from './RequireAuth';
@@ -50,6 +53,21 @@ function App() {
           <Route path='/profile' element={
           <RequireAuth>
             <Profile/>
+          </RequireAuth>
+          }/>
+          <Route path='/profile/pin' element={
+          <RequireAuth>
+            <ChangePin/>
+          </RequireAuth>
+          }/>
+          <Route path='/profile/info' element={
+          <RequireAuth>
+            <DetailProfile/>
+          </RequireAuth>
+          }/>
+          <Route path='/profile/phone' element={
+          <RequireAuth>
+            <ChangePhone/>
           </RequireAuth>
           }/>
           <Route path='/*' element={<Page404/>}/>
