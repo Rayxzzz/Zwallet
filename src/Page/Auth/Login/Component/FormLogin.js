@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import { Link, useNavigate } from 'react-router-dom'
 import { login, balance } from '../../../Helper/auth'
+import { useDispatch } from 'react-redux'
+import { GetProfile } from '../../../../redux/actions/Profile'
+import { GetBalance } from '../../../../redux/actions/Balance'
 
 
 const FormLogin = () => {
@@ -12,6 +15,7 @@ const FormLogin = () => {
     })
     const navigate = useNavigate()
     const [errorMsg, seterrorMsg] = useState('')
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         setForm({
@@ -29,26 +33,21 @@ const FormLogin = () => {
         })
             .then((res) => {
                 const result = res.data.data[0]
+                const token1 = res.data.data[0].token
+                localStorage.setItem('token', result.token)
                 setForm({
                     ...form,
                     id: result.user_id
                 })
+                dispatch(GetProfile(token1))
+                dispatch(GetBalance(token1))
                 console.log(result)
-                localStorage.setItem('auth', 1)
-                localStorage.setItem('user', JSON.stringify(result))
                 alert(res.data.message)
-                // balance(result.user_id)
-                //     .then((res) => {
-                //         localStorage.setItem('balance', res.data.data[0].balance)
-                //     })
-                //     .catch((err) => {
-                //         console.log(err)
-                //     })
                 navigate('/')
             })
             .catch((err) => {
-                console.log(err.message)
-                seterrorMsg(err.response.data.message)
+                // console.log(err.message)
+                seterrorMsg(err.response)
             })
 
 

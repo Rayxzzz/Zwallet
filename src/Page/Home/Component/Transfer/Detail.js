@@ -1,8 +1,10 @@
 import React from 'react'
 import '../../home.css'
 import Receiver from './Receiver'
+import { useSelector } from 'react-redux'
 
 const Detail = (props) => {
+    const { data, loading, error } = useSelector((state) => state.balance)
     
     return (
         <div className="w-100 h-100 d-flex justify-content-center align-items-center">

@@ -8,36 +8,30 @@ import History from './Component/Dashboard/History'
 import './home.css'
 import { useEffect, useState } from 'react/cjs/react.development'
 import { balance } from '../Helper/auth'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetProfile } from '../../redux/actions/Profile'
+import { GetBalance } from '../../redux/actions/Balance'
 
 const Dashboard = () => {
-    const [saldo , setSaldo] = useState({
-        value : ''
-    })
+    const dispatch = useDispatch()
+    const { data, loading, error } = useSelector((state) => state.profile)
+    const balance = useSelector((state)=>state.balance)
+
     const user = JSON.parse(localStorage.getItem('user'))
-    
-    useEffect(()=> {
-        balance(user.user_id)
-        .then((res) => {
-            localStorage.setItem('balance', res.data.data[0].balance)
-            setSaldo({
-                value : res.data.data[0].balance
-            })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    },[])
-    // const balance = localStorage.getItem('balance')
+    const token = localStorage.getItem('token')
 
 
+    useEffect(() => {
+        dispatch(GetBalance(token))
+    }, [])
 
     return (
         <div className='home d-flex flex-column justify-content-center align-items-center'>
-            <Header/>
+            <Header />
             <div className="main-content w-75 d-flex justify-content-between align-items-center" >
                 <Navbar />
                 <div className='dashboard ps-3'>
-                    <Saldo balance={saldo.value} phone={user.phone}/>
+                    <Saldo balance={balance.data[0].balance} phone={data[0].phone} />
                     <div className='b mt-2 d-flex'>
                         <Graphic />
                         <History />

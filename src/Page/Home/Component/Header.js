@@ -1,13 +1,17 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 const Header = (props) => {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const { data, loading, error } = useSelector((state) => state.profile)
     let phone
-    if(user.phone === 1){
+    if(data[0].phone === 1){
         phone = <p style={{ color: '#7A7886' }} className='mt-0'>not registered</p>
     } else{
-        phone = <p style={{ color: '#7A7886' }} className='mt-0'>+62{user.phone}</p>
+        phone = <p style={{ color: '#7A7886' }} className='mt-0'>+62{data[0].phone}</p>
     }
+
+    const hai = 'j'
 
     return (
         <div className="header d-flex justify-content-center bg-secondary w-100 bg-light">
@@ -16,9 +20,9 @@ const Header = (props) => {
                     <h2 style={{ color: '#6379F4' }}>Zwallet</h2>
                 </section>
                 <section className="w-25 h-100  d-flex align-items-center justify-content-between">
-                    <img src='https://i.pinimg.com/236x/7f/39/f0/7f39f0ad4dd6b777ab72bc7dc3b91958.jpg' className='border1' width='52px' alt="" />
+                    <img src={hai} className='border1' width='52px' alt="" />
                     <div className="h-100 d-flex flex-column justify-content-center align-items-center">
-                        <h5 className="mt-3" style={{ color: "#3A3D42" }}>{user.Name}</h5>
+                        <h5 className="mt-3" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
                         {phone}
                     </div>
                     <img src="image/bell.png" alt="" />

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react/cjs/react.development'
 import { useParams , useNavigate} from 'react-router-dom'
-import { profile } from '../../../Helper/home'
+import { profile, profileId } from '../../../Helper/home'
 
 const Receiver = (props) => {
     const [receiver, setReceiver] = useState({
@@ -12,12 +12,13 @@ const Receiver = (props) => {
     })
     
     useEffect(()=>{
-        profile(props.id)
+        profileId(props.id)
         .then(res => {
+            console.log(res.data.data[0])
             setReceiver({
-                name : res.data[0].Name,
-                phone : res.data[0].phone,
-                id : res.data[0].user_id
+                name : res.data.data[0].Name,
+                phone : res.data.data[0].phone,
+                id : res.data.data[0].user_id
             })
         })
         .catch(err => {

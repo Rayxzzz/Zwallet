@@ -9,9 +9,11 @@ import { useEffect, useState } from 'react/cjs/react.development'
 import { useNavigate } from 'react-router-dom'
 import { detailTransaction } from '../../Helper/home'
 import { processTransfer } from '../../Helper/home'
+import { useSelector } from 'react-redux'
 
 
 const Confirmation = () => {
+    const { data, loading, error } = useSelector((state) => state.balance)
     const [detail, setDetail] = useState({
         amount : '',
         balance: '',
@@ -31,7 +33,6 @@ const Confirmation = () => {
 
     const params = useParams()
     const navigate = useNavigate()
-    const balance = localStorage.getItem('balance')
     const user = JSON.parse(localStorage.getItem('user'))
 
     useEffect(()=>{
@@ -39,7 +40,7 @@ const Confirmation = () => {
         .then((res)=>{
             setDetail({
                 amount : res.data.data[0].amount,
-                balance : Number(balance) - Number(res.data.data[0].amount),
+                balance : data[0].balance - Number(res.data.data[0].amount),
                 date : new Date(res.data.data[0].date).toString(),
                 popup : false
             })

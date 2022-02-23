@@ -1,7 +1,11 @@
 import React from 'react'
 import Receiver from './Receiver'
+import { useSelector } from 'react-redux'
 
 const AmountTransfer = (props) => {
+    const { data, loading, error } = useSelector((state) => state.balance)
+
+
     return (
         <div className="w-100 h-100 d-flex justify-content-center align-items-center">
             <div className="amountPage">
@@ -22,7 +26,7 @@ const AmountTransfer = (props) => {
                     <input value={props.value} onChange={props.amount} className="amount" type="text" placeholder="0.00"/>
                 </div>
                 <div>
-                    <p className="fs-5 fw-bolder">Rp.{localStorage.getItem('balance')} Available </p>
+                    <p className="fs-5 fw-bolder">Rp.{data[0].balance} Available </p>
                 </div>
                 <div>
                     <input type="text" placeholder="Add some notes" className="message w-100 mt-3"/>

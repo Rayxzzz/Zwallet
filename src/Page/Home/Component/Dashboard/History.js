@@ -12,7 +12,7 @@ const History = (props) => {
 
 
     useEffect(() => {
-        transactionHistory(user.user_id)
+        transactionHistory()
             .then((res) => {
                 setData({
                     data: res.data.data
@@ -21,7 +21,8 @@ const History = (props) => {
             .catch((err) => {
                 console.log(err.response)
             })
-    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     return (
         <div className="b-2 border1 ms-2 h-100 bg-light">

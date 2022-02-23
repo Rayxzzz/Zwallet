@@ -39,7 +39,7 @@ const SearchUser = () => {
             <div className="main-content w-75 d-flex justify-content-between align-items-center" >
                 <Navbar />
                 <div className='dashboard d-flex justify-content-center bg-light border1 ms-3'>
-                    <ListUser data={data.data} event={handleClick}/>
+                    <ListUser data={data.data} events={handleClick}/>
                 </div>
             </div>
             <Footer />

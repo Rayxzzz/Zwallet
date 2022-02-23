@@ -1,25 +1,23 @@
 import React from 'react'
 import { useEffect } from 'react/cjs/react.development'
 import { topup } from '../../../Helper/home'
+import { TopUpBalance } from '../../../../redux/actions/Balance'
+import {useDispatch, useSelector} from 'react-redux'
+
 
 const Saldo = (props) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    const balance = localStorage.getItem('balance')
-    // useEffect(()=>{
-    //     balance(user.user_id)
-    //         .then((res) => {
-    //             localStorage.setItem('balance', res.data.data[0].balance)
-    //         })
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // },[])
+    const { data, loading, error } = useSelector((state) => state.profile)
+
+    const dispatch = useDispatch()
+    useEffect(()=>{
+       
+    },[])
 
     let phone
-    if(user.phone === 1){
+    if(data[0].phone === 1){
         phone = <p className="pt-2">not registered</p>
     } else{
-        phone = <p className="pt-2">+62{props.phone}</p>
+        phone = <p className="pt-2">+62{data[0].phone}</p>
     }
 
     const handleClick = () => {
@@ -31,16 +29,15 @@ const Saldo = (props) => {
         } else if (text <= 0 || value === '0' ){
           return alert('top-up failed')
         } else{
-            topup(user.user_id, {
+            dispatch(TopUpBalance({
                 balance : Number(text)
-            })
-            .then((res) => {
-                alert(res.data.message)
-                localStorage.setItem('balance', Number(balance) + Number(text))
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            }))
+            // .then((res) => {
+            //     alert("success topup")
+            // })
+            // .catch((err) => {
+            //     console.log(err)
+            // })
         }
     }
 
