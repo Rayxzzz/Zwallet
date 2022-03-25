@@ -4,7 +4,7 @@ import Navbar from './Component/Navbar'
 import Footer from './Component/Footer'
 import ListHistory from './Component/History/ListHistory'
 import './home.css'
-import { useEffect, useState } from 'react/cjs/react.development'
+import { useEffect, useState } from 'react'
 import { transactionHistory } from '../Helper/home'
 
 
