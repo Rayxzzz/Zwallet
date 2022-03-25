@@ -1,6 +1,6 @@
 import React from 'react'
 import InputPin from '../../../../Component/pin/inputPin'
-import { useState } from 'react/cjs/react.development'
+import { useState } from 'react'
 import { changePin } from '../../../Helper/home'
 
 const ChangePinChild = () => {

@@ -1,19 +1,14 @@
 import React from 'react'
-import { useState } from 'react/cjs/react.development'
+import { useState } from 'react'
 import { changePhone } from '../../../Helper/home'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { GetProfile } from '../../../../redux/actions/Profile'
+
 
 const AddPhone = () => {
-    const { data, loading, error } = useSelector((state) => state.profile)
-    const dispatch = useDispatch()
     const token = localStorage.getItem('token')
 
     const [phone, setPhone] = useState({
         number: ''
     })
-    let user = JSON.parse(localStorage.getItem('user'))
 
     const handleChange = (e) => {
         console.log(e.target.value)

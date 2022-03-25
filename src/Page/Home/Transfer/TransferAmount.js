@@ -4,7 +4,7 @@ import Navbar from '../Component/Navbar'
 import Footer from '../Component/Footer'
 import AmountTransfer from '../Component/Transfer/AmountTransfer'
 import { makeInvoice } from '../../Helper/home'
-import { useState } from 'react/cjs/react.development'
+import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 const TransferAmount = () => {

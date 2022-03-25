@@ -1,8 +1,6 @@
 import React from 'react'
-import axios from 'axios'
-import { useEffect, useState } from 'react/cjs/react.development'
-import { useParams, useNavigate } from 'react-router-dom'
-import { profile, profileId } from '../../../Helper/home'
+import { useEffect, useState } from 'react'
+import {  profileId } from '../../../Helper/home'
 
 const Receiver = (props) => {
     const [receiver, setReceiver] = useState({
@@ -27,6 +25,7 @@ const Receiver = (props) => {
             .catch(err => {
                 console.log(err)
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

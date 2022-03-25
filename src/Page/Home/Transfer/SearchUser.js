@@ -3,10 +3,9 @@ import Header from '../Component/Header'
 import Navbar from '../Component/Navbar'
 import Footer from '../Component/Footer'
 import ListUser from '../Component/Transfer/ListUser'
-import { useEffect, useState } from 'react/cjs/react.development'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { allUser } from '../../Helper/home'
-import axios from 'axios'
 
 const SearchUser = () => {
    const [data, setData] = useState({
