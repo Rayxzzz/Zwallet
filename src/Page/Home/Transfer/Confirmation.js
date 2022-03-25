@@ -15,7 +15,7 @@ import socket from '../../Helper/socket'
 
 
 const Confirmation = () => {
-    const { data, loading, error } = useSelector((state) => state.balance)
+    const { data } = useSelector((state) => state.balance)
     const profile = useSelector((state)=> state.profile)
     const [test, setTest] = useState('')
     const [detail, setDetail] = useState({
@@ -37,7 +37,6 @@ const Confirmation = () => {
 
     const params = useParams()
     const navigate = useNavigate()
-    const user = JSON.parse(localStorage.getItem('user'))
 
     useEffect(()=>{
         detailTransaction(params.invoice)

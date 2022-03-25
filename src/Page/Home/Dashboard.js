@@ -6,10 +6,8 @@ import Saldo from './Component/Dashboard/Saldo'
 import Graphic from './Component/Dashboard/Graphic'
 import History from './Component/Dashboard/History'
 import './home.css'
-import { useEffect, useState } from 'react/cjs/react.development'
-import { balance } from '../Helper/auth'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetProfile } from '../../redux/actions/Profile'
 import { GetBalance } from '../../redux/actions/Balance'
 import socket from '../Helper/socket'
 
@@ -17,10 +15,9 @@ import socket from '../Helper/socket'
 
 const Dashboard = () => {
     const dispatch = useDispatch()
-    const { data, loading, error } = useSelector((state) => state.profile)
+    const { data } = useSelector((state) => state.profile)
     const balance = useSelector((state)=>state.balance)
     
-    const user = JSON.parse(localStorage.getItem('user'))
     const token = localStorage.getItem('token')
     
     
@@ -31,6 +28,7 @@ const Dashboard = () => {
         socket.on('sendMoney', (data))
         dispatch(GetBalance(token))
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket])
 
     return (

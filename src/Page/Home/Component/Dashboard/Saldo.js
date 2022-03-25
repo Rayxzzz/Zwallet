@@ -1,12 +1,11 @@
 import React from 'react'
 import { useEffect } from 'react/cjs/react.development'
-import { topup } from '../../../Helper/home'
 import { TopUpBalance } from '../../../../redux/actions/Balance'
 import {useDispatch, useSelector} from 'react-redux'
 
 
 const Saldo = (props) => {
-    const { data, loading, error } = useSelector((state) => state.profile)
+    const { data } = useSelector((state) => state.profile)
     const token = localStorage.getItem('token')
     const dispatch = useDispatch()
     useEffect(()=>{

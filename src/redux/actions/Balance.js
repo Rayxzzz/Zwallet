@@ -61,6 +61,7 @@ export const TopUpBalance = (data, token1) => {
         .catch((err)=>{
             console.log(err)
             const message =  err.message
+            console.log(message)
         })
     }
 }

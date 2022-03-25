@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
-import {Link, useNavigate} from 'react-router-dom'
-import { register } from '../../../Helper/auth'
-import axios from 'axios'
+import {Link } from 'react-router-dom'
 
 
 const FormRegister = (props) => {

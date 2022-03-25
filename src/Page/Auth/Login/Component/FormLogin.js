@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import { Link, useNavigate } from 'react-router-dom'
-import { login, balance } from '../../../Helper/auth'
+import { login } from '../../../Helper/auth'
 import { useDispatch } from 'react-redux'
 import { GetProfile } from '../../../../redux/actions/Profile'
 import { GetBalance } from '../../../../redux/actions/Balance'

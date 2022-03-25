@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import '../../../Home/home.css'
-import { axiosInstance } from '../../../Helper/axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeProfile, GetProfile } from '../../../../redux/actions/Profile'
 
@@ -12,7 +11,7 @@ const ProfileChild = () => {
         photo: '',
         name: '',
     })
-    const { data, loading, error } = useSelector((state) => state.profile)
+    const { data } = useSelector((state) => state.profile)
     let phone
     if(data[0].phone === 1){
         phone = <p style={{ color: '#7A7886' }} className='mt-0'>not registered</p>
@@ -20,10 +19,7 @@ const ProfileChild = () => {
         phone = <p style={{ color: '#7A7886' }} className='mt-0'>+62{data[0].phone}</p>
     }
 
-    const [profile, setProfile] = useState({
-        photo: '',
-        name: ''
-    })
+    
     const dispatch = useDispatch()
 
     const handleChange = (e) => {
@@ -41,7 +37,6 @@ const ProfileChild = () => {
     }
 
     let token = localStorage.getItem('token')
-    const user = JSON.parse(localStorage.getItem('user'))
     
     const [edit, setEdit] = useState(false)
     const navigate = useNavigate()
@@ -55,6 +50,7 @@ const ProfileChild = () => {
     }
     useEffect(()=> {
         dispatch(GetProfile(token))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const handleSubmit = (e) => {
