@@ -11,19 +11,27 @@ import { balance } from '../Helper/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetProfile } from '../../redux/actions/Profile'
 import { GetBalance } from '../../redux/actions/Balance'
+import socket from '../Helper/socket'
+
+
 
 const Dashboard = () => {
     const dispatch = useDispatch()
     const { data, loading, error } = useSelector((state) => state.profile)
     const balance = useSelector((state)=>state.balance)
-
+    
     const user = JSON.parse(localStorage.getItem('user'))
     const token = localStorage.getItem('token')
-
-
+    
+    
+    
     useEffect(() => {
+        console.log(data[0])
+        socket.emit('userOnline', (data[0]))
+        socket.on('sendMoney', (data))
         dispatch(GetBalance(token))
-    }, [])
+
+    }, [socket])
 
     return (
         <div className='home d-flex flex-column justify-content-center align-items-center'>

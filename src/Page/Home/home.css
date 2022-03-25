@@ -27,6 +27,52 @@
 }
 
 
+.pointer{
+    cursor: pointer;
+}
+
+.notif-modal{
+    position: absolute;
+    width: 33vw;
+    height: 70vh;
+    background-color: #1EC15F;
+    top: 16vh;
+    right: 5vw;
+    border-radius: 25px;
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+.dot{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    right: 12%;
+    top: 4%;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.dotNew{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    right: 9px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+
+.imgnotif{
+    border-radius: 50%;
+}
+
+
 /* navbar */
 
 .navSize{
@@ -55,7 +101,7 @@
 }
 
 .nav1{
-    background: url("../../../public/image/grid.png") 20% 43% no-repeat;
+    background: url("../../../public/image/grid2.png") 20% 43% no-repeat;
 }
 
 .nav2{

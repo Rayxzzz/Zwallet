@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+
 
 const PersonalInfo = () => {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const { data, loading, error } = useSelector((state) => state.profile)
+
     let phone
-    if(user.phone === 1){
+    if(data[0].phone === 1){
         phone = <h6>not registered</h6>
     } else{
-        phone = <h6>+{user.phone}</h6>
+        phone = <h6>+{data[0].phone}</h6>
     }
 
     return (
@@ -22,14 +25,14 @@ const PersonalInfo = () => {
             <div className="user d-flex  align-items-center h-25 mt-3">
                 <div className="name-info pe-1 ms-4">
                     <p className="mb-2">First Name</p>
-                    <h6>{user.Name}</h6>
+                    <h6>{data[0].Name}</h6>
                 </div>
                 <div className="flex-fill"></div>
             </div>
             <div className="user d-flex  align-items-center h-25 mt-3">
                 <div className="name-info pe-1 ms-4">
                     <p className="mb-2">Verified E-mail</p>
-                    <h6>{user.Email}</h6>
+                    <h6>{data[0].Email}</h6>
                 </div>
                 <div className="flex-fill"></div>
             </div>

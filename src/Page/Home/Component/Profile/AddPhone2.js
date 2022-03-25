@@ -1,16 +1,17 @@
 import React from 'react'
 import { changePhone } from '../../../Helper/home'
+import { useSelector } from 'react-redux'
 
 const AddPhone2 = () => {
+    const { data, loading, error } = useSelector((state) => state.profile)
+
     let user = JSON.parse(localStorage.getItem('user'))
 
     const handleClick = () => {
-        changePhone(user.user_id, {
+        changePhone( {
             phone : 1
         })
         .then((res) => {
-            user.phone = 1
-            localStorage.setItem('user', JSON.stringify(user))
             alert('phone deleted')
         })
         .catch((err) => {
@@ -27,7 +28,7 @@ const AddPhone2 = () => {
             <div className="user d-flex  align-items-center h-25 mt-3">
                 <div className="name-info pe-1 ms-4">
                     <p className="mb-2">Phone</p>
-                    <h6>+62{user.phone}</h6>
+                    <h6>+62{data[0].phone}</h6>
                 </div>
                 <div className="flex-fill"></div>
                 <img className='me-5' src="/image/trash.png" alt="" onClick={handleClick}/>

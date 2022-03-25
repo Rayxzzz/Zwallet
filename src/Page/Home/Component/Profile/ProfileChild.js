@@ -54,7 +54,7 @@ const ProfileChild = () => {
         setEdit(true)
     }
     useEffect(()=> {
-        dispatch(GetProfile())
+        dispatch(GetProfile(token))
     },[])
 
     const handleSubmit = (e) => {
@@ -64,7 +64,7 @@ const ProfileChild = () => {
         formData.append('name', form.name)
 
 
-        dispatch(changeProfile(formData))
+        dispatch(changeProfile(formData, token))
         .then((res)=>{
             console.log(data)
             setEdit(false)
@@ -94,7 +94,7 @@ const ProfileChild = () => {
                     <img src={data[0].photo} className='border1' width='52px' alt="" />
                     <div className='d-flex w-50 mt-3' onClick={handleClick}>
                         <img src="image/Vector.png" height="20px" alt="" />
-                        <p style={{ color: '#7A7886' }} className='ps-2'>Edit</p>
+                        <p style={{ color: '#7A7886' }} role='button' className='ps-2 cursor-pointer'>Edit</p>
                     </div>
                     <div className="d-flex flex-column justify-content-center align-items-center">
                         <h5 className="mt-2 h-25" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>

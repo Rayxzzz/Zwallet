@@ -1,4 +1,7 @@
 import { axiosInstance } from "../../Page/Helper/axios"
+import { useNavigate } from "react-router-dom"
+
+// eslint-disable-next-line react-hooks/rules-of-hooks
 
 const token = localStorage.getItem('token')
 
@@ -47,11 +50,11 @@ export const GetProfile = (token1)=> {
     }
 }
 
-export const changeProfile = (data) => {
+export const changeProfile = (data, token1) => {
     return (dispatch) => {
         return axiosInstance.put(`/user/profile`, data, {
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token1}`
             }
         })
         .then((res)=>{
@@ -59,7 +62,7 @@ export const changeProfile = (data) => {
             dispatch(PutProfile(result))
             
         }).then((res)=>{
-            dispatch(GetProfile())
+            dispatch(GetProfile(token1))
         }).catch((err)=>{
             const message =  err.message
             console.log(message)

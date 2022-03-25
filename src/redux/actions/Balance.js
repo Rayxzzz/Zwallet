@@ -47,9 +47,9 @@ export const GetBalance = (token1)=> {
     }
 }
 
-export const TopUpBalance = (data) => {
+export const TopUpBalance = (data, token1) => {
     return (dispatch) => {
-        return topup(data)
+        return topup(data, token1)
         .then((res)=>{
             console.log(res.data)
             const result = res.data.message

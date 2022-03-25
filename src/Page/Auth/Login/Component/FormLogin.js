@@ -35,19 +35,16 @@ const FormLogin = () => {
                 const result = res.data.data[0]
                 const token1 = res.data.data[0].token
                 localStorage.setItem('token', result.token)
-                setForm({
-                    ...form,
-                    id: result.user_id
-                })
                 dispatch(GetProfile(token1))
                 dispatch(GetBalance(token1))
+                .then((res)=>{
+                    navigate('/')
+                })
                 console.log(result)
                 alert(res.data.message)
-                navigate('/')
             })
             .catch((err) => {
-                // console.log(err.message)
-                seterrorMsg(err.response)
+                seterrorMsg(err.response.data.message)
             })
 
 

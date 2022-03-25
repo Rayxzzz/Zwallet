@@ -10,10 +10,14 @@ import { useNavigate } from 'react-router-dom'
 import { detailTransaction } from '../../Helper/home'
 import { processTransfer } from '../../Helper/home'
 import { useSelector } from 'react-redux'
+import socket from '../../Helper/socket'
+
 
 
 const Confirmation = () => {
     const { data, loading, error } = useSelector((state) => state.balance)
+    const profile = useSelector((state)=> state.profile)
+    const [test, setTest] = useState('')
     const [detail, setDetail] = useState({
         amount : '',
         balance: '',
@@ -36,8 +40,9 @@ const Confirmation = () => {
     const user = JSON.parse(localStorage.getItem('user'))
 
     useEffect(()=>{
-        detailTransaction(user.user_id, params.invoice)
+        detailTransaction(params.invoice)
         .then((res)=>{
+            setTest(res.data.data[0])
             setDetail({
                 amount : res.data.data[0].amount,
                 balance : data[0].balance - Number(res.data.data[0].amount),
@@ -59,6 +64,15 @@ const Confirmation = () => {
     }
 
     const handleClick = () => {
+        socket.emit('sendMoney', {
+            sender: test.id_sender,
+            receiver: test.receiver,
+            amount: test.amount,
+            invoice: test.invoice,
+            photo: profile.data[0].photo,
+            date: new Date()
+        })
+        
         setDetail({
             ...detail,
             popup : true
@@ -68,12 +82,19 @@ const Confirmation = () => {
         e.preventDefault()
         let pinConfirm = Number(pin.pin1 + pin.pin2 + pin.pin3 + pin.pin4 + pin.pin5 + pin.pin7)
 
-        processTransfer(user.user_id, params.invoice, {
+        socket.emit('sendMoney', {
+            sender: test.id_sender,
+            receiver: test.receiver,
+            amount: test.amount,
+            invoice: test.invoice,
+            photo: profile.data[0].photo,
+            date: new Date()
+        })
+        processTransfer(params.invoice, {
             pin : pinConfirm
         })
         .then((res) => {
             alert('success transfer')
-            localStorage.setItem('balance', detail.balance)
             navigate('/')
         })
         .catch((err) => {

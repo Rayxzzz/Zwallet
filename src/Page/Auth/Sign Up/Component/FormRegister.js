@@ -34,7 +34,7 @@ const FormRegister = (props) => {
                 />
             </div>
             <button className='btn-login mt-5' onClick={props.click}>Sign Up</button>
-            <p className="text-center mt-4">Already have an account? Let’s <Link to='/register'>Login</Link></p>
+            <p className="text-center mt-4">Already have an account? Let’s <Link to='/login'>Login</Link></p>
         </div>
         </Fragment>
     )

@@ -1,8 +1,15 @@
 import React from 'react'
 import { useState } from 'react/cjs/react.development'
 import { changePhone } from '../../../Helper/home'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { GetProfile } from '../../../../redux/actions/Profile'
 
 const AddPhone = () => {
+    const { data, loading, error } = useSelector((state) => state.profile)
+    const dispatch = useDispatch()
+    const token = localStorage.getItem('token')
+
     const [phone, setPhone] = useState({
         number: ''
     })
@@ -16,12 +23,10 @@ const AddPhone = () => {
     }
 
     const handleClick = () => {
-        changePhone(user.user_id, {
+        changePhone({
             phone : phone.number
-        })
+        }, token)
         .then((res) => {
-            user.phone = phone.number
-            localStorage.setItem('user', JSON.stringify(user))
             alert('success add phone')
         })
         .catch((err) => {

@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 const Saldo = (props) => {
     const { data, loading, error } = useSelector((state) => state.profile)
-
+    const token = localStorage.getItem('token')
     const dispatch = useDispatch()
     useEffect(()=>{
        
@@ -31,13 +31,13 @@ const Saldo = (props) => {
         } else{
             dispatch(TopUpBalance({
                 balance : Number(text)
-            }))
-            // .then((res) => {
-            //     alert("success topup")
-            // })
-            // .catch((err) => {
-            //     console.log(err)
-            // })
+            },token))
+            .then((res) => {
+                console.log('success')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         }
     }
 

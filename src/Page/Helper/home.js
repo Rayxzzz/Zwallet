@@ -5,34 +5,34 @@ let token = localStorage.getItem('token')
 
 
 // transaction
-export const transactionHistory = () => {
+export const transactionHistory = (token1) => {
     return axiosInstance.get(`/user/transaction/history`, { 
-        headers: {"Authorization" : `Bearer ${token}`} 
+        headers: {"Authorization" : `Bearer ${token1}`} 
     })
 } 
 
-export const detailTransaction = (id,invoice) => {
+export const detailTransaction = (invoice) => {
     return axiosInstance.get(`/user/transaction/${invoice}`, { 
         headers: {"Authorization" : `Bearer ${token}`} 
     })
 }
 
-export const processTransfer = (id, invoice, data) => {
+export const processTransfer = (invoice, data) => {
     return axiosInstance.put(`/user/transaction/${invoice}`, data, { 
         headers: {"Authorization" : `Bearer ${token}`} 
     })
 }
 
-export const makeInvoice = (id, data) => {
+export const makeInvoice = (data, token1) => {
     return axiosInstance.post(`/user/transaction`, data, { 
-        headers: {"Authorization" : `Bearer ${token}`} 
+        headers: {"Authorization" : `Bearer ${token1}`} 
     })
 }
 
 // balance
-export const topup = (data) => {
+export const topup = (data, token1) => {
     return axiosInstance.put(`/user/top-up`, data, { 
-        headers: {"Authorization" : `Bearer ${token}`} 
+        headers: {"Authorization" : `Bearer ${token1}`} 
     })
 }
 
@@ -50,9 +50,9 @@ export const profile = (id) => {
     })
 }
 
-export const profileId = (id) => {
+export const profileId = (id, token1) => {
     return axiosInstance.get(`/user/${id}`, { 
-        headers: {"Authorization" : `Bearer ${token}`} 
+        headers: {"Authorization" : `Bearer ${token1}`} 
     })
 }
 
@@ -62,8 +62,8 @@ export const changePin = (id, data) => {
     })
 }
 
-export const changePhone = (id, data) => {
+export const changePhone = (data, token1) => {
     return axiosInstance.put(`/user/profile/phone`, data, { 
-        headers: {"Authorization" : `Bearer ${token}`} 
+        headers: {"Authorization" : `Bearer ${token1}`} 
     })
 }

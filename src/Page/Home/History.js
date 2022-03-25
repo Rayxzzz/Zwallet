@@ -13,11 +13,11 @@ const History = () => {
         data : []
     })
     const user = JSON.parse(localStorage.getItem('user'))
-
+    let token = localStorage.getItem('token')
     
     
     useEffect(() => {
-        transactionHistory(user.user_id)
+        transactionHistory(token)
         .then((res) => {
             setData({
                 data : res.data.data

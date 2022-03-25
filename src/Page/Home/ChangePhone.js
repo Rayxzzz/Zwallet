@@ -5,12 +5,13 @@ import Footer from './Component/Footer'
 import AddPhone from './Component/Profile/AddPhone'
 import AddPhone2 from './Component/Profile/AddPhone2'
 import './home.css'
-
+import { useSelector } from 'react-redux'
 
 const ChangePhone = () => {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const { data, loading, error } = useSelector((state) => state.profile)
+
     let phone
-    if(user.phone === 1){
+    if(data[0].phone === 1){
         phone = <AddPhone/>
     } else{
         phone = <AddPhone2/>

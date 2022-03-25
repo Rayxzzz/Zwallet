@@ -7,12 +7,14 @@ const History = (props) => {
     const [data, setData] = useState({
         data: []
     })
-    const user = JSON.parse(localStorage.getItem('user'))
+
+    const token = localStorage.getItem('token')
+
 
 
 
     useEffect(() => {
-        transactionHistory()
+        transactionHistory(token)
             .then((res) => {
                 setData({
                     data: res.data.data
