@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import { useEffect } from 'react'
 import { TopUpBalance } from '../../../../redux/actions/Balance'
 import {useDispatch, useSelector} from 'react-redux'
 
