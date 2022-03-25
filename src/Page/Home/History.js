@@ -12,7 +12,6 @@ const History = () => {
     const [data, setData] = useState({
         data : []
     })
-    const user = JSON.parse(localStorage.getItem('user'))
     let token = localStorage.getItem('token')
     
     
