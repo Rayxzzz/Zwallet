@@ -1,6 +1,6 @@
 # Zwallet
 
-**Zwallet** adalah aplikasi dompet digital yang menyederhanakan kebutuhan finansial anda dan dapat menghemat banyak waktu dalam kebutuhan perbankan hanya dengan satu aplikasi.
+**Zwallet** adalah dompet digital yang menyederhanakan kebutuhan finansial anda dan dapat menghemat banyak waktu dalam kebutuhan perbankan hanya dengan menggunakan Zwallet.
 
 
 ## Built With
