@@ -1,10 +1,15 @@
-# Blanja! Tempat Jajan Anak Muda.
+# Zwallet
 
-**Blanja** is a website based application that created for a digital marketplace. With advance features but still very user friendly, you can buy anything you like, or sell anything you want.
+**Zwallet** adalah aplikasi dompet digital yang menyederhanakan kebutuhan finansial anda dan dapat menghemat banyak waktu dalam kebutuhan perbankan hanya dengan satu aplikasi.
+
 
 ## Built With
 
-- [React.js](https://reactjs.org/)
+- [React.js]
+- [Mysql]
+- [Express.js]
+- [Node.js]
+
 
 ## Installation
 
