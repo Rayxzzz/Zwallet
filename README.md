@@ -30,8 +30,7 @@
 
 Demo : https://bit.ly/ZwalletSite
 
-email : ridho99@gmail.com
-password : 123
+email : ridho99@gmail.com || password : 123
 
 
 ## FEATURES
