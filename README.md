@@ -74,8 +74,3 @@ Here are some snippets about this app:
 ![Profile](./src/assets/images/snippet2.png)
 
 
-<!-- ## Blanja Update!
-
-**Blanja** is currently on development process!
-
-Last Updated on Tuesday, 25/01/2022 -->
