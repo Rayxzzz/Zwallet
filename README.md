@@ -15,7 +15,7 @@
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/pilarhh/blanja-app.git
+   git clone https://github.com/Rayxzzz/Zwallet.git
    ```
 2. Install NPM packages
    ```sh
