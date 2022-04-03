@@ -87,8 +87,8 @@ const RightSide = () => {
                         we cover all of that for you!
                     </p>
                 </div>
-                {pin.popup &&  <FormPin change={handleChangePin} submit={handleSubmit}/>}
-                {form.popup &&  <FormRegister click={handleClick} change={handleChange}/>} 
+                {pin.popup &&  <FormPin one={pin.pin1} two={pin.pin2} three={pin.pin3} four={pin.pin4} five={pin.pin5} six={pin.pin7} change={handleChangePin} submit={handleSubmit}/>}
+                {form.popup &&  <FormRegister email={form.email} password={form.password} user={form.user} click={handleClick} change={handleChange}/>} 
                 </div>
             </div>
         </div>

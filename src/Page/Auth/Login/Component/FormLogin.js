@@ -71,7 +71,11 @@ const FormLogin = () => {
                     {errorMsg && <p className='text-danger pt-2'>{errorMsg}</p>}
                 </div>
                 <Link to='/login' className="text-end mt-4 flex-fill">Forgot password?</Link>
-                <button className='btn-login mt-5'>Login</button>
+                {form.email && form.password ? 
+                <button className={`btn-loginOn mt-5`}>Login</button>
+                :
+                <button className={`btn-login mt-5`} disabled>Login</button>
+            }
                 <p className="text-center mt-4">Don’t have an account? Let’s <Link to='/register'>Sign up</Link></p>
             </form>
         </Fragment>

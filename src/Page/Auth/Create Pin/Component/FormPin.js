@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import InputPin from '../../../../Component/pin/inputPin'
-import { Link, useNavigate } from 'react-router-dom'
-import { balance } from '../../../Helper/auth'
-import axios from 'axios'
 
 
 const FormPin = (props) => {
@@ -16,7 +13,11 @@ const FormPin = (props) => {
                    <InputPin click={props.change}/>
                     {/* {errorMsg && <p className='text-danger pt-2'>{errorMsg}</p>} */}
                 </div>
-                <button className='btn-login mt-5'>Confirm</button>
+                {props.one && props.two && props.three && props.four && props.five && props.six ? 
+                <button className='btn-loginOn mt-5'>Confirm</button>
+                :
+                <button className='btn-login mt-5' disabled>Confirm</button>
+            }
             </form>
         </Fragment>
     )

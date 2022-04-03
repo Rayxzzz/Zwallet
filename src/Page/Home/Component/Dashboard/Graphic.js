@@ -7,12 +7,12 @@ const Graphic = () => {
                 <div className="d-flex justify-content-between h-20 w-100 align-items-center mt-4 px-4">
                     <div>
                         <img src="image/arrow-down-green.png" alt="" />
-                        <p>income</p>
+                        <p>Income</p>
                         <h6>Rp2.120.000</h6>
                     </div>
                     <div>
                         <img src="image/arrow-up-red.png" alt="" />
-                        <p>income</p>
+                        <p>Expense</p>
                         <h6>Rp2.120.000</h6>
                     </div>
                 </div>
