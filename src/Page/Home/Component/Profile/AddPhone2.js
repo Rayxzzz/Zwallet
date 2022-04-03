@@ -1,6 +1,8 @@
 import React from 'react'
 import { changePhone } from '../../../Helper/home'
 import { useSelector } from 'react-redux'
+import '../../../style/dashboard.css'
+
 
 const AddPhone2 = () => {
     const { data, loading, error } = useSelector((state) => state.profile)
@@ -19,7 +21,7 @@ const AddPhone2 = () => {
         })
     }
     return (
-        <div className='p-5 w-100'>
+        <div className='fade-up p-5 w-100'>
             <h4>Manage Phone Number</h4>
             <div className='' style={{ color: '#7A7886' }}>
                 <p className='m-0 mt-4'>You can only delete the phone number and then</p>

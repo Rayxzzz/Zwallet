@@ -6,7 +6,8 @@ const Receiver = (props) => {
     const [receiver, setReceiver] = useState({
         name: '',
         phone: '',
-        id: ''
+        id: '',
+
     })
 
     let token = localStorage.getItem('token')
@@ -29,11 +30,11 @@ const Receiver = (props) => {
     }, [])
 
     return (
-        <div className="user d-flex  align-items-center">
-            <img src="https://i.pinimg.com/236x/7f/39/f0/7f39f0ad4dd6b777ab72bc7dc3b91958.jpg" alt="" width="50px" height="50px" className="mb-1 ms-3" />
+        <div className="user mt-2 d-flex  align-items-center">
+            <img src={props.image} alt="" width="50px" height="50px" className="border-img mb-1 ms-3" />
             <div className="name-info pe-1 ms-4 pt-3">
-                <h6>{receiver.name} ({receiver.id})</h6>
-                <p>{receiver.phone}</p>
+                <h6>{props.name}</h6>
+                <p>+62{props.phone}</p>
             </div>
             <div className="flex-fill"></div>
         </div>

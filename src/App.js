@@ -14,6 +14,7 @@ import ChangePin from './Page/Home/ChangePin';
 import DetailProfile from './Page/Home/DetailProfile';
 import ChangePhone from './Page/Home/ChangePhone';
 import Pin from './Page/Auth/Create Pin/Pin'
+import Success from './Page/Home/Transfer/Success';
 import Page404 from './Page/Page404';
 import RequireAuth from './RequireAuth';
 
@@ -49,6 +50,11 @@ function App() {
           <Route path='/transfer/:id/:invoice' element={
           <RequireAuth>
             <Confirmation/>
+          </RequireAuth>
+          }/>
+          <Route path='/transfer/:id/:invoice/success' element={
+          <RequireAuth>
+            <Success/>
           </RequireAuth>
           }/>
           <Route path='/profile' element={

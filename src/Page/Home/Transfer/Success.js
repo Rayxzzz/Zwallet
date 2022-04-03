@@ -11,28 +11,28 @@ import { detailTransaction } from '../../Helper/home'
 import { processTransfer } from '../../Helper/home'
 import { useSelector } from 'react-redux'
 import socket from '../../Helper/socket'
+import DetailSuccess from '../Component/Transfer/DetailSuccess'
 import { profileId } from '../../Helper/home'
 
 
 
 
-const Confirmation = () => {
+const Success = () => {
     const { data } = useSelector((state) => state.balance)
     const profile = useSelector((state)=> state.profile)
     const token = localStorage.getItem('token')
     const [test, setTest] = useState('')
+    const [detail, setDetail] = useState({
+        amount : '',
+        balance: '',
+        date : '',
+        popup: false
+    })
     const [receiver, setReceiver] = useState({
         name: '',
         phone: '',
         photo: '',
 
-    })
-    const [detail, setDetail] = useState({
-        amount : '',
-        balance: '',
-        date : '',
-        message:'',
-        popup: false
     })
 
     const [pin, setPin] = useState({
@@ -72,7 +72,6 @@ const Confirmation = () => {
                 amount : res.data.data[0].amount,
                 balance : data[0].balance - Number(res.data.data[0].amount),
                 date : new Date(res.data.data[0].date).toString(),
-                message: res.data.data[0].message,
                 popup : false
             })
         })
@@ -92,19 +91,7 @@ const Confirmation = () => {
     
 
     const handleClick = () => {
-        socket.emit('sendMoney', {
-            sender: test.id_sender,
-            receiver: test.receiver,
-            amount: test.amount,
-            invoice: test.invoice,
-            photo: profile.data[0].photo,
-            date: new Date()
-        })
-        
-        setDetail({
-            ...detail,
-            popup : true
-        })
+        navigate('/')
     }
     const handleClickPin = (e) => {
         e.preventDefault()
@@ -122,7 +109,8 @@ const Confirmation = () => {
             pin : pinConfirm
         })
         .then((res) => {
-            navigate(`/transfer/${params.id}/${params.invoice}/success`)
+            alert('success transfer')
+            navigate('/')
         })
         .catch((err) => {
             console.log()
@@ -137,7 +125,7 @@ const Confirmation = () => {
             <div className="main-content w-75 d-flex justify-content-between align-items-center" >
                 <Navbar transfer='on'/>
                 <div className='dashboard overflow-scroll d-flex justify-content-center bg-light border1 ms-3'>
-                <Detail name={receiver.name} phone={receiver.phone} image={receiver.photo} id={params.id} click={handleClick} amount={detail.amount} left={detail.balance} message={detail.message} date={detail.date}/>
+                <DetailSuccess name={receiver.name} phone={receiver.phone} image={receiver.photo} id={params.id} click={handleClick} amount={detail.amount} left={detail.balance} date={detail.date}/>
                 </div>
             </div>
             <Footer />
@@ -145,4 +133,4 @@ const Confirmation = () => {
     )
 }
 
-export default Confirmation
+export default Success

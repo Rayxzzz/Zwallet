@@ -12,6 +12,13 @@ const Saldo = (props) => {
        
     },[])
 
+    const rupiah = (number)=>{
+        return new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR"
+        }).format(number);
+      }
+
     let phone
     if(data[0].phone === 1){
         phone = <p className="pt-2">not registered</p>
@@ -46,12 +53,12 @@ const Saldo = (props) => {
             <div className="a border1 w-100 h-30 d-flex justify-content-between align-items-center">
                 <div className="right w-30 h-75 ms-5 pt-3 text-white">
                     <p>Balance</p>
-                    <h3>Rp.{props.balance}</h3>
+                    <h3>{rupiah(props.balance).substring(0, rupiah(props.balance).indexOf(','))}</h3>
                     {phone}
                 </div>
-                <div className="left w-30 h-75 me-5 d-flex flex-column justify-content-around align-items-end">
-                    <button className="btn1 btn w-75 h-30 fs-5 border border-light text-white">Transfer</button>
-                    <button className="btn2 btn w-75 h-30 fs-5 border border-light mt-4 text-white" onClick={handleClick}>Top Up</button>
+                <div className="w-30 h-75 me-5 d-flex flex-column justify-content-around align-items-end">
+                    <button className="btn1 btn fs-5 ps-4 border border-light text-white">Transfer</button>
+                    <button className="btn2 btn ps-4 fs-5 border border-light mt-4 text-white" onClick={handleClick}>Top Up</button>
                 </div>
             </div>
         </div>

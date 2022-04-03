@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import '../../../Home/home.css'
+import '../../../style/dashboard.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeProfile, GetProfile } from '../../../../redux/actions/Profile'
 
@@ -72,7 +73,7 @@ const ProfileChild = () => {
         }
 
         return (
-            <div className='w-75 d-flex flex-column align-items-center'>
+            <div className='fade-up w-75 d-flex flex-column align-items-center'>
 
             {edit ?
                 <form className='w-25 mt-3 d-flex flex-column align-items-center' onSubmit={handleSubmit}>

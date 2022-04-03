@@ -2,6 +2,8 @@ import React from 'react'
 import InputPin from '../../../../Component/pin/inputPin'
 import { useState } from 'react'
 import { changePin } from '../../../Helper/home'
+import '../../../style/dashboard.css'
+
 
 const ChangePinChild = () => {
     const [pin, setPin] = useState({
@@ -40,7 +42,7 @@ const ChangePinChild = () => {
     }
 
     return (
-        <div className='p-5 w-100'>
+        <div className='fade-up p-5 w-100'>
             <h4>Change PIN</h4>
             <div className='' style={{ color: '#7A7886' }}>
                 <p className='m-0 mt-4'>Enter your current 6 digits Zwallet PIN below to</p>

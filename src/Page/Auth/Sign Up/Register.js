@@ -6,7 +6,7 @@ import RightSide from './Component/RightSide'
 function Login() {
     return (
         
-        <div className='main row bg-secondary'>
+        <div className='main row bg-secondary m-0'>
         <Leftside/>
         <RightSide/>
         </div>

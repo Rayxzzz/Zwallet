@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
+import '../../../style/dashboard.css'
+
 
 
 const PersonalInfo = () => {
@@ -14,7 +16,7 @@ const PersonalInfo = () => {
     }
 
     return (
-        <div className='p-5 w-100'>
+        <div className='fade-up p-5 w-100'>
             <h4>Personal Information</h4>
             <div className='' style={{ color: '#7A7886' }}>
                 <p className='m-0 mt-4'>We got your personal information from the sign</p>

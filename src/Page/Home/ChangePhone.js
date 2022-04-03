@@ -20,7 +20,7 @@ const ChangePhone = () => {
         <div className='home d-flex flex-column justify-content-center align-items-center'>
             <Header/>
             <div className="main-content w-75 d-flex justify-content-between align-items-center" >
-                <Navbar />
+                <Navbar profile='on'/>
                 <div className='dashboard d-flex justify-content-center bg-light border1 ms-3'>
                 {phone}
                 </div>

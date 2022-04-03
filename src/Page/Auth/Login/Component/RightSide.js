@@ -3,7 +3,7 @@ import FormLogin from './FormLogin'
 
 const RightSide = () => {
     return (
-        <div className='col bg-light'>
+        <div className='col-5 bg-light'>
             <div className='h-100 w-100 d-flex justify-content-center align-items-center'>
                 <div className='w-75 h-75 d-flex flex-column mb-5'>
                 <div className="info-right d-flex justify-content-between flex-column ">

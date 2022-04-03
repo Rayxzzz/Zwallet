@@ -47,9 +47,9 @@ const Header = (props) => {
 
     let phone
     if (data[0].phone === 1) {
-        phone = <p style={{ color: '#7A7886' }} className='mt-0'>not registered</p>
+        phone = <p style={{ color: '#7A7886' }} className='mt-0 pb-1'>not registered</p>
     } else {
-        phone = <p style={{ color: '#7A7886' }} className='mt-0'>+62{data[0].phone}</p>
+        phone = <p style={{ color: '#7A7886' }} className='mt-0 pb-1'>+62{data[0].phone}</p>
     }
     
     return (
@@ -59,9 +59,9 @@ const Header = (props) => {
                     <h2 style={{ color: '#6379F4' }}>Zwallet</h2>
                 </section>
                 <section className="w-25 h-100  d-flex align-items-center justify-content-between">
-                    <img src={data[0].photo} className='border1' width='52px' alt="" />
+                    <img src={data[0].photo} className='border-img' width='52px' alt="" />
                     <div onClick={closeNotif} className="h-100 d-flex flex-column justify-content-center align-items-center">
-                        <h5 className="mt-3" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
+                        <h5 className="mt-4" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
                         {phone}
                     </div>
                     {notifCount? <div className='dot'><p className='text-center text-light'></p></div> : null}

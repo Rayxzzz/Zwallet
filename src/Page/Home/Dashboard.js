@@ -6,6 +6,7 @@ import Saldo from './Component/Dashboard/Saldo'
 import Graphic from './Component/Dashboard/Graphic'
 import History from './Component/Dashboard/History'
 import './home.css'
+import '../style/dashboard.css'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetBalance } from '../../redux/actions/Balance'
@@ -34,9 +35,9 @@ const Dashboard = () => {
     return (
         <div className='home d-flex flex-column justify-content-center align-items-center'>
             <Header />
-            <div className="main-content w-75 d-flex justify-content-between align-items-center" >
-                <Navbar />
-                <div className='dashboard ps-3'>
+            <div className="fade-up main-content w-75 d-flex justify-content-between align-items-center" >
+                <Navbar dashboard='on' />
+                <div className='dashboard ms-3'>
                     <Saldo balance={balance.data[0].balance} phone={data[0].phone} />
                     <div className='b mt-2 d-flex'>
                         <Graphic />

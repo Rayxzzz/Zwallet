@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { changePhone } from '../../../Helper/home'
+import '../../../style/dashboard.css'
 
 
 const AddPhone = () => {
@@ -29,7 +30,7 @@ const AddPhone = () => {
         })
     }
     return (
-        <div className='p-5 w-100'>
+        <div className='fade-up p-5 w-100'>
             <h4>Add Phone Number</h4>
             <div className='' style={{ color: '#7A7886' }}>
                 <p className='m-0 mt-4'>Add at least one phone number for the transfer</p>
