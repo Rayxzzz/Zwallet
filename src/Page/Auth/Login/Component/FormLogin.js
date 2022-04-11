@@ -37,11 +37,10 @@ const FormLogin = () => {
                 localStorage.setItem('token', result.token)
                 dispatch(GetProfile(token1))
                 dispatch(GetBalance(token1))
-                .then((res)=>{
-                    navigate('/')
-                })
+                    .then((res) => {
+                        navigate('/')
+                    })
                 console.log(result)
-                alert(res.data.message)
             })
             .catch((err) => {
                 seterrorMsg(err.response.data.message)
@@ -52,12 +51,13 @@ const FormLogin = () => {
 
     return (
         <Fragment>
-            <form className="h-55 d-flex flex-column mt-5" onSubmit={handleSubmit}>
-                <div className="input-login w-100 h-30 d-flex flex-column justify-content-between" >
+            <form className="fade-up-mobile h-55 d-flex flex-column mt-5 " onSubmit={handleSubmit}>
+               
+                <div className="input-login w-100 h-30 d-flex flex-column justify-content-between align-items-center" >
                     <input
                         type="text"
                         placeholder="Enter your e-mail"
-                        className="email w-100 "
+                        className="email w-100"
                         name='email'
                         onChange={handleChange}
                     />
@@ -71,11 +71,11 @@ const FormLogin = () => {
                     {errorMsg && <p className='text-danger pt-2'>{errorMsg}</p>}
                 </div>
                 <Link to='/login' className="text-end mt-4 flex-fill">Forgot password?</Link>
-                {form.email && form.password ? 
-                <button className={`btn-loginOn mt-5`}>Login</button>
-                :
-                <button className={`btn-login mt-5`} disabled>Login</button>
-            }
+                {form.email && form.password ?
+                    <button className={`btn-loginOn mt-5`}>Login</button>
+                    :
+                    <button className={`btn-login mt-5`} disabled>Login</button>
+                }
                 <p className="text-center mt-4">Don’t have an account? Let’s <Link to='/register'>Sign up</Link></p>
             </form>
         </Fragment>

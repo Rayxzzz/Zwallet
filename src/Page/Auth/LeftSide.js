@@ -4,7 +4,7 @@ import '../style/login.css'
 
 function LeftSide() {
     return (
-        <div className='left col-7'>
+        <div className='d-none d-md-block  left col-7'>
             <div className='fade-left p-5 d-flex justify-content-center flex-column'>
             <div className="ps-4 brand-name fw-bolder h-10 text-light">
                     <h3>Zwallet</h3>

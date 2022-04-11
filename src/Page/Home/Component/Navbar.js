@@ -15,7 +15,7 @@ const Navbar = (props) => {
     
 
     return (
-        <div className="border1 navSize bg-light d-flex justify-content-center">
+        <div className="d-md-block d-none border1 navSize bg-light d-flex justify-content-center">
             <aside className='w-100 h-100'>
                 <nav className="h-75 w-100 d-flex flex-column  mt-5">
                     <div className={`${props.dashboard === 'on' ? 'nav1On' : 'nav1'} ${props.dashboard === 'on' ? 'navBorderOn' : 'navBorderOff'} h-15 w-100 d-flex align-items-center justify-content-center`}><h5 className="ms-4 w-30"><Link className={`${props.dashboard  === 'on' ? 'navLinkOn' : 'navLink'}`} to='/'>Dashboard</Link></h5></div>

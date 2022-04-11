@@ -39,9 +39,9 @@ const History = (props) => {
                     <h6 className="m-0">Transaction History</h6>
                     <Link className='navLink' to='/history'>see all</Link>
                 </div>
-                <div className="d-flex flex-column h-75 overflow-hidden">
-                    {data.data.map(item =>
-                        <div className="d-flex align-items-center ps-2 pe-2">
+                <div className="d-flex flex-column historyH overflow-hidden">
+                    {data.data.slice(0, 3).map(item =>
+                        <div className="d-flex h-100 align-items-center ps-2 pe-2">
                             <img src={item.photo} alt="" width="50px" height="50px" className="mb-3 ms-2 border-img" />
                             <div className="name-info h-100 pe-1 ms-3">
                                 <h6 className='mt-2'>{item.name}</h6>

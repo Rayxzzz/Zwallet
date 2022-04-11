@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { TopUpBalance } from '../../../../redux/actions/Balance'
 import {useDispatch, useSelector} from 'react-redux'
+import '../../../style/dashboard.css'
 
 
 const Saldo = (props) => {
@@ -57,8 +58,8 @@ const Saldo = (props) => {
                     {phone}
                 </div>
                 <div className="w-30 h-75 me-5 d-flex flex-column justify-content-around align-items-end">
-                    <button className="btn1 btn fs-5 ps-4 border border-light text-white">Transfer</button>
-                    <button className="btn2 btn ps-4 fs-5 border border-light mt-4 text-white" onClick={handleClick}>Top Up</button>
+                    <button className="btn1 d-none d-md-block btn fs-5 ps-4 border border-light text-white">Transfer</button>
+                    <button className="btn2 d-none d-md-block btn ps-4 fs-5 border border-light mt-4 text-white" onClick={handleClick}>Top Up</button>
                 </div>
             </div>
         </div>

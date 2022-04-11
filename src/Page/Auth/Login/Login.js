@@ -1,5 +1,6 @@
 import React from 'react'
 import './login.css'
+import '../../style/login.css'
 import Leftside from '../LeftSide'
 import RightSide from './Component/RightSide'
 

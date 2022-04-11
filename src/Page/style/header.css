@@ -1,0 +1,22 @@
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .profile{
+        width:17%;
+    }
+
+    .text{
+        text-align: left;
+    }
+
+    .bell{
+        margin-left: 140px;
+    }
+
+    .header{
+        border-radius: 0px;
+    }
+
+    .head-content{
+        width: 90%;
+    }
+}

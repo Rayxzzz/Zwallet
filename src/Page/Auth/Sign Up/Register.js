@@ -2,6 +2,7 @@ import React from 'react'
 import './register.css'
 import Leftside from '../LeftSide'
 import RightSide from './Component/RightSide'
+import '../../style/login.css'
 
 function Login() {
     return (

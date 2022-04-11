@@ -5,7 +5,7 @@ import { axiosInstance } from '../../Helper/axios'
 import socket from '../../Helper/socket'
 import Moment from 'react-moment'
 import bell from './bell.png'
-
+import '../../style/header.css'
 
 const Header = (props) => {
     const dispatch = useDispatch()
@@ -54,18 +54,35 @@ const Header = (props) => {
     
     return (
         <div className="header d-flex justify-content-center bg-secondary w-100 bg-light">
-            <div className="head-content w-75 h-100 d-flex justify-content-between">
-                <section className="w-25 h-100 d-flex align-items-center">
+            <div className="head-content h-100 d-flex justify-content-between">
+                <section className="d-none w-25 h-100 d-md-flex align-items-center">
                     <h2 style={{ color: '#6379F4' }}>Zwallet</h2>
                 </section>
-                <section className="w-25 h-100  d-flex align-items-center justify-content-between">
-                    <img src={data[0].photo} className='border-img' width='52px' alt="" />
-                    <div onClick={closeNotif} className="h-100 d-flex flex-column justify-content-center align-items-center">
+                <section className="w-25 h-100 d-none d-md-flex align-items-center justify-content-between">
+                    <img src={data[0].photo} className='profile border-img' width='52px' alt="" />
+                    <div onClick={closeNotif} className="d-none d-md-flex h-100 flex-column justify-content-center align-items-center">
                         <h5 className="mt-4" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
                         {phone}
                     </div>
+                    <div className='p-4 pt-4 pb-3 d-sm-none text-width'>
+                    <p style={{ color: '#7A7886' }} className='m-0 mb-2'>Hello,</p>
+                    <h5 className="" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
+                    </div>
                     {notifCount? <div className='dot'><p className='text-center text-light'></p></div> : null}
-                    <img className='pointer' src={bell} alt="" onClick={handleClick}/>
+                    <img className='pointer bell' src={bell} alt="" onClick={handleClick}/>
+                </section>
+                <section className="w-100 h-100 d-sm-none d-flex align-items-center justify-content-between">
+                    <img src={data[0].photo} className='profile border-img' width='52px' alt="" />
+                    <div onClick={closeNotif} className="d-none d-md-flex h-100 flex-column justify-content-center align-items-center">
+                        <h5 className="mt-4" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
+                        {phone}
+                    </div>
+                    <div className='d-sm-none w-25 pt-2 text-width'>
+                    <p style={{ color: '#7A7886' }} className='m-0 mb-2'>Hello,</p>
+                    <h5 className="" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
+                    </div>
+                    {notifCount? <div className='dot'><p className='text-center text-light'></p></div> : null}
+                    <img className='pointer bell' src={bell} alt="" onClick={handleClick}/>
                 </section>
                 {notif ? 
                 <div className='notif-modal bg-light'>
