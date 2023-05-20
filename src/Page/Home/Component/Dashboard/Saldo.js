@@ -32,7 +32,7 @@ const Saldo = (props) => {
     const handleClick = () => {
         // let text = prompt('input value', '')
         // let value = String(text).split(' ')[0]
-        dispatch(AddBalanceSuccess([{balance : Number(amount) + props.balance}]))
+        dispatch(AddBalanceSuccess([{balance : Number(amount) + Number(props.balance)}]))
         setAmount()
         setOpen(false)
         // if(text === ''){
@@ -80,7 +80,7 @@ const Saldo = (props) => {
                     <button className="btn2 d-none d-md-block btn ps-4 fs-5 border border-light mt-4 text-white" onClick={()=>setOpen(true)}>Top Up</button>
                 </div>
             </div>
-            <div className="w-100 h-100 me-5 d-flex flex justify-content-around align-items-end">
+            <div className="w-100 h-100 me-5 d-flex d-md-none justify-content-around align-items-end">
                     <button className="btn1 button-color btn fs-5 ps-4 border border-light text-white" onClick={()=>navigate('/transfer')}>Transfer</button>
                     <button className="btn2 button-color btn ps-4 fs-5 border border-light mt-4 text-white" onClick={()=>setOpen(true)}>Top Up</button>
             </div>

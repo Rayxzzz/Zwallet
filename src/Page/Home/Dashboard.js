@@ -42,7 +42,7 @@ const Dashboard = () => {
             <div className="fade-up main-content d-flex justify-content-between align-items-center" >
                 <Navbar dashboard='on' />
                 <div className='dashboard ms-md-3'>
-                    <Saldo balance={balance?.data?.[0]?.balance} phone={data?.[0]?.phone} />
+                    <Saldo balance={balance.data[0].balance} phone={data?.[0]?.phone} />
                     <div className='b mt-2 d-flex'>
                         <Graphic />
                         <History />
