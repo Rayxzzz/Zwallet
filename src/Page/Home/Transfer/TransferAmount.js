@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { profileId } from '../../Helper/home'
+import axios from 'axios'
 
 const TransferAmount = () => {
     const [value, setValue] = useState()
@@ -32,41 +33,55 @@ const TransferAmount = () => {
     }
 
     useEffect(() => {
-        profileId(params.id, token)
-            .then(res => {
-                console.log(res.data.data[0])
-                setReceiver({
-                    name: res.data.data[0].Name,
-                    phone: res.data.data[0].phone,
-                    photo: res.data.data[0].photo
-                })
+        axios.get(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+        .then(res => {
+            setReceiver({
+                name : res.data.name,
+                phone : 17707368031,
+                photo : 'https://i.pinimg.com/236x/7f/39/f0/7f39f0ad4dd6b777ab72bc7dc3b91958.jpg'
             })
-            .catch(err => {
-                console.log(err)
-            })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+
+        // profileId(params.id, token)
+        //     .then(res => {
+        //         console.log(res.data.data[0])
+        //         setReceiver({
+        //             name: res.data.data[0].Name,
+        //             phone: res.data.data[0].phone,
+        //             photo: res.data.data[0].photo
+        //         })
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
+
     }, [])
 
     const handleClick = (e) => {
-        makeInvoice({
-            receiver: Number(params.id),
-            amount: value,
-            message: message,
-            photo_receiver: receiver.photo,
-            receiver_name: receiver.name
-        }, token)
-            .then((res) => {
-                let param = res.data.message.replace(/\D/g, "")
-                navigate(`/transfer/${params.id}/${param}`)
+        navigate(`/transfer/${params.id}/1234`)
+        localStorage.setItem('dataSend', JSON.stringify({amount : value, message : message}))
+        // makeInvoice({
+        //     receiver: Number(params.id),
+        //     amount: value,
+        //     message: message,
+        //     photo_receiver: receiver.photo,
+        //     receiver_name: receiver.name
+        // }, token)
+        //     .then((res) => {
+        //         let param = res.data.message.replace(/\D/g, "")
+        //         navigate(`/transfer/${params.id}/${param}`)
 
-            })
-            .catch((err) => {
-                console.log(err.response)
-                alert(err.response.data.message)
-            })
+        //     })
+        //     .catch((err) => {
+        //         console.log(err.response)
+        //         alert(err.response.data.message)
+        //     })
     }
-    // console.log(receiver.photo)
-    console.log(message )
+
     return (
         <div className='home d-flex flex-column justify-content-center align-items-center'>
             <Header />

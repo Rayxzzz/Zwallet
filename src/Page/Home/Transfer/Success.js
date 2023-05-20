@@ -20,6 +20,7 @@ import { profileId } from '../../Helper/home'
 const Success = () => {
     const { data } = useSelector((state) => state.balance)
     const profile = useSelector((state)=> state.profile)
+    const transaction = useSelector((state)=> state.Transaction)
     const token = localStorage.getItem('token')
     const [test, setTest] = useState('')
     const [detail, setDetail] = useState({
@@ -49,6 +50,7 @@ const Success = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        console.log(data);
         profileId(params.id, token)
             .then(res => {
                 console.log(res.data.data[0])
@@ -125,7 +127,8 @@ const Success = () => {
             <div className="main-content w-75 d-flex justify-content-between align-items-center" >
                 <Navbar transfer='on'/>
                 <div className='dashboard overflow-scroll d-flex justify-content-center bg-light border1 ms-3'>
-                <DetailSuccess name={receiver.name} phone={receiver.phone} image={receiver.photo} id={params.id} click={handleClick} amount={detail.amount} left={detail.balance} date={detail.date}/>
+                {/* <DetailSuccess name={receiver.name} phone={receiver.phone} image={receiver.photo} id={params.id} click={handleClick} amount={detail.amount} left={detail.balance} date={detail.date}/> */}
+                <DetailSuccess name={transaction.data[0].name} phone={transaction.data[0].phone} image={transaction.data[0].photo} id={params.id} click={handleClick} amount={transaction.data[0].amount} left={data[0].balance} message={transaction.data[0].message} date="12 nov 2023"/>
                 </div>
             </div>
             <Footer />

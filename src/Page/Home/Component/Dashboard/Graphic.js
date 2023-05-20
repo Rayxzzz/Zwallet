@@ -2,7 +2,7 @@ import React from 'react'
 
 const Graphic = () => {
     return (
-        <div className="b-2 border1 w-50 d-flex justify-content-between">
+        <div className="b-2 d-md-flex border1 w-50 d-none justify-content-between">
             <div className="border1 w-100 h-100 bg-light">
                 <div className="d-flex justify-content-between h-20 w-100 align-items-center mt-4 px-4">
                     <div>

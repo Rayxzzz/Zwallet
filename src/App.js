@@ -34,7 +34,7 @@ function App() {
           }/>
           <Route path='/history' element={
           <RequireAuth>
-          <History/>
+            <History/>
           </RequireAuth>
           }/>
           <Route path='/transfer' element={

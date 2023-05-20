@@ -29,6 +29,13 @@ export const PutBalaceSuccess = (data)=> {
     }
 }
 
+export const AddBalanceSuccess = (data)=> {
+    return {
+        type: 'ADD_BALANCE_SUCCESS',
+        payload: data
+    }
+}
+
 export const GetBalance = (token1)=> {
     return (dispatch) => {
         dispatch(GetBalanceRequest())
@@ -40,8 +47,8 @@ export const GetBalance = (token1)=> {
            const data =  res.data?.data
            dispatch(GetBalanceSuccess(data))
         }).catch((err)=>{
-            console.log(err.response.data)
             const message =  err.message
+            dispatch(GetBalanceSuccess([{balance : 100000}]))
             dispatch(GetBalanceFail(message))
         })
     }

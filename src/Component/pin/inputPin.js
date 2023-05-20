@@ -6,6 +6,7 @@ const InputPin = (props) => {
                      <input
                         type="text"
                         maxLength={1}
+                        value={1}
                         pattern="\d*"
                         placeholder="_"
                         className="pin p-1"
@@ -14,6 +15,7 @@ const InputPin = (props) => {
                     />
                     <input
                         type="text"
+                        value={1}
                         maxLength={1}
                         placeholder="_"
                         className="pin p-1"
@@ -21,6 +23,7 @@ const InputPin = (props) => {
                         onChange={props.click}
                     /><input
                         type="text"
+                        value={1}
                         maxLength={1}
                         placeholder="_"
                         className="pin p-1"
@@ -28,6 +31,7 @@ const InputPin = (props) => {
                         onChange={props.click}
                     /><input
                         type="text"
+                        value={1}
                         maxLength={1}
                         placeholder="_"
                         className="pin p-1"
@@ -35,6 +39,7 @@ const InputPin = (props) => {
                         onChange={props.click}
                     /><input
                         type="text"
+                        value={1}
                         maxLength={1}
                         placeholder="_"
                         className="pin p-1"
@@ -42,6 +47,7 @@ const InputPin = (props) => {
                         onChange={props.click}
                     /><input
                         type="text"
+                        value={1}
                         maxLength={1}
                         placeholder="_"
                         className="pin p-1"

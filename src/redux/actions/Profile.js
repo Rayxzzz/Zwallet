@@ -43,7 +43,7 @@ export const GetProfile = (token1)=> {
            const data =  res.data?.data
            dispatch(GetProfileSuccess(data))
         }).catch((err)=>{
-            console.log(err.response.data)
+            dispatch(GetProfileSuccess([{phone : 628333166444, Name : 'John Doe', Email : 'demo@gmail.com'}]))
             const message =  err.message
             dispatch(GetProfileFail(message))
         })

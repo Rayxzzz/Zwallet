@@ -1,11 +1,14 @@
 import React from 'react'
 import '../../home.css'
 import Receiver from './Receiver'
+import { useSelector } from 'react-redux'
 
 
 
 const Detail = (props) => {
-    
+    const test = new Date
+    const leftAmount = useSelector((state)=>state.balance)
+
     const rupiah = (number)=>{
         return new Intl.NumberFormat("id-ID", {
           style: "currency",
@@ -36,14 +39,17 @@ const Detail = (props) => {
                     <div className="user d-flex py-3 align-items-center h-25 mt-3">
                         <div className="name-info pe-1 ms-4">
                             <p className="mb-2">Balance Left</p>
-                            <h6>{rupiah(props.left, "Rp. ").substring(0, rupiah(props.left).indexOf(','))}</h6>
+                            {/* <h6>{leftAmount.data[0].balance}</h6> */}
+                            <h6>{rupiah(leftAmount.data[0].balance - props.amount, "Rp. ").substring(0, rupiah(leftAmount.data[0].balance - props.amount).indexOf(','))}</h6>
+                            {/* <h6>{rupiah(props.left, "Rp. ").substring(0, rupiah(props.left).indexOf(','))}</h6> */}
                         </div>
                         <div className="flex-fill"></div>
                     </div>
                     <div className="user d-flex py-3 align-items-center h-25 mt-3">
                         <div className="name-info pe-1 ms-4">
                             <p className="mb-2">Date & Time</p>
-                            <h6>{props.date}</h6>
+                            {/* <h6>{props.date}</h6> */}
+                            <h6>12 nov 2023</h6>
                         </div>
                         <div className="flex-fill"></div>
                     </div>

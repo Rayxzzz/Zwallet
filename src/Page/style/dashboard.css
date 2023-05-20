@@ -17,16 +17,13 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .a{
         height:20vh;
         width: 100%;
     }
-    .main-content{
-        width: 100%;
-    }
 
     .dashboard{
-        width: 92%;
+        width: 80%;
     }
 }

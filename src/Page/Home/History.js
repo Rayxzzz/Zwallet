@@ -6,6 +6,7 @@ import ListHistory from './Component/History/ListHistory'
 import './home.css'
 import { useEffect, useState } from 'react'
 import { transactionHistory } from '../Helper/home'
+import { useSelector } from 'react-redux'
 
 
 const History = () => {
@@ -13,6 +14,7 @@ const History = () => {
         data : []
     })
     let token = localStorage.getItem('token')
+    const history = useSelector((state) => state.Transaction)
     
     
     useEffect(() => {
@@ -34,7 +36,7 @@ const History = () => {
             <div className="main-content w-75 d-flex justify-content-between align-items-center" >
                 <Navbar />
                 <div className='dashboard d-flex justify-content-center bg-light border1 ms-3'>
-                <ListHistory data={data.data}/>
+                <ListHistory data={history.data}/>
                 </div>
             </div>
             <Footer />

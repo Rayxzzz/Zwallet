@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Receiver from './Receiver'
 import { useSelector } from 'react-redux'
 import '../../../style/dashboard.css'
@@ -6,13 +6,21 @@ import '../../../style/dashboard.css'
 
 const AmountTransfer = (props) => {
     const { data, loading, error } = useSelector((state) => state.balance)
-
-    const rupiah = (number)=>{
+    const [errors ,setErrors] = useState(false)
+    const rupiah = (number) => {
         return new Intl.NumberFormat("id-ID", {
           style: "currency",
           currency: "IDR"
         }).format(number);
       }
+
+    useEffect(()=>{
+        if(props.value > data[0].balance){
+            setErrors(true)
+        } else {
+            setErrors(false)
+        }
+    },[props.value])
       
     return (
         <div className="fade-up w-100 h-100 d-flex justify-content-center align-items-center">
@@ -27,8 +35,8 @@ const AmountTransfer = (props) => {
                     <p className="mt-3">
                         Type the amount you want to transfer and then
                         press continue to the next steps.
-                </p>
-            </div>
+                    </p>
+                </div>
             <div className="input h-50 w-100 mt-4 d-flex flex-column align-items-center">
                 <div className="h-30 w-40 d-flex justify-content-center">
                     <input type='number' value={props.value} onChange={props.amount} className="amount" placeholder="0.00"/>
@@ -39,13 +47,14 @@ const AmountTransfer = (props) => {
                 <div>
                     <input maxLength={20} value={props.message} onChange={props.message2} type="text" placeholder="Add some notes" className="message w-100 mt-3"/>
                 </div>
+                {errors && <p className='pt-2 text-danger'>balance not enought</p>}
                 <div className="flex-fill"></div>
                 <div className="align-conten align-self-end h-25 w-25">
-                    <button className="btnTransfer h-100 w-100 mt-4" onClick={props.click}>continue</button>
+                    <button className="btnTransfer h-100 w-100 mt-4" onClick={props.click} disabled={errors}>continue</button>
                 </div>
             </div>
         </div> 
-                    </div >
+     </div >
     )
 }
 

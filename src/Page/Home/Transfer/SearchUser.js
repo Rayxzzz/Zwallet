@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { allUser } from '../../Helper/home'
 import '../../style/dashboard.css'
+import axios from 'axios'
 
 const SearchUser = () => {
    const [data, setData] = useState({
@@ -16,21 +17,22 @@ const SearchUser = () => {
    const navigate = useNavigate()
 
     useEffect(()=>{
-        allUser()
-        .then((res) => {
-            console.log(res)
-            setData({
-              data : res.data.data
-            })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+        axios.get("https://jsonplaceholder.typicode.com/users").then((res) => setData({data : res.data}))
+        // allUser()
+        // .then((res) => {
+        //     console.log(res)
+        //     setData({
+        //       data : res.data.data
+        //     })
+        // })
+        // .catch((err) => {
+        //     console.log(err)
+        // })
     },[])
 
     const handleClick = (e) => {
-        console.log(e)
-        navigate(`/transfer/${e.target.id}`)
+        const test = e.target.id
+        navigate(`/transfer/${test}`)
     }
 
     return (

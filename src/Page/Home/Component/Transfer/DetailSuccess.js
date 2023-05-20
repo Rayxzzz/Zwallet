@@ -3,6 +3,7 @@ import '../../home.css'
 import Receiver from './Receiver'
 import success from '../../../../assets/images/success.png'
 import '../../../style/dashboard.css'
+import { useSelector } from 'react-redux'
 
 
 
@@ -15,6 +16,8 @@ const DetailSuccess = (props) => {
         }).format(number);
     }
 
+    const history = useSelector((state) => state.Transaction)
+    console.log(history);
     return (
         <div className="fade-up w-100 h-100 d-flex justify-content-center align-items-center">
             <div className="a-content h-75 w-75">
@@ -51,7 +54,7 @@ const DetailSuccess = (props) => {
                     <div className="user d-flex py-3 align-items-center h-25 mt-3">
                         <div className="name-info pe-1 ms-4">
                             <p className="mb-2">Notes</p>
-                            <h6>For buying some socks</h6>
+                            <h6>{props.message}</h6>
                         </div>
                         <div className="flex-fill"></div>
                     </div>

@@ -5,6 +5,7 @@ import '../../../Home/home.css'
 import '../../../style/dashboard.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeProfile, GetProfile } from '../../../../redux/actions/Profile'
+import test from '../../../../assets/images/photo2.png'
 
 
 const ProfileChild = () => {
@@ -88,7 +89,7 @@ const ProfileChild = () => {
                 </form>
                 :
                 <div className='w-25 mt-3 d-flex flex-column align-items-center'>
-                    <img src={data[0].photo} className='border1' width='52px' alt="" />
+                    <img src={test} className='border1' width='52px' alt="" />
                     <div className='d-flex w-50 mt-3' onClick={handleClick}>
                         <img src="image/Vector.png" height="20px" alt="" />
                         <p style={{ color: '#7A7886' }} role='button' className='ps-2 cursor-pointer'>Edit</p>

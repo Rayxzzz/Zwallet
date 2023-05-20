@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { GetNotification } from '../../../redux/actions/NotificationList'
 import { axiosInstance } from '../../Helper/axios'
 import socket from '../../Helper/socket'
+import test from '../../../assets/images/photo2.png'
 import Moment from 'react-moment'
 import bell from './bell.png'
 import '../../style/header.css'
@@ -25,11 +26,8 @@ const Header = (props) => {
             newNotif.unshift(data)
             setNotifCount(true)
         })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
-    
-    console.log(newNotif)
     const closeNotif = () => {
         setNotif(false)
         setNotifCount(false)
@@ -45,12 +43,12 @@ const Header = (props) => {
     }
 
 
-    let phone
-    if (data[0].phone === 1) {
-        phone = <p style={{ color: '#7A7886' }} className='mt-0 pb-1'>not registered</p>
-    } else {
-        phone = <p style={{ color: '#7A7886' }} className='mt-0 pb-1'>+62{data[0].phone}</p>
-    }
+    // let phone
+    // if (data[0].phone === 1) {
+    //     phone = <p style={{ color: '#7A7886' }} className='mt-0 pb-1'>not registered</p>
+    // } else {
+    //     phone = <p style={{ color: '#7A7886' }} className='mt-0 pb-1'>+62{data[0].phone}</p>
+    // }
     
     return (
         <div className="header d-flex justify-content-center bg-secondary w-100 bg-light">
@@ -59,10 +57,10 @@ const Header = (props) => {
                     <h2 style={{ color: '#6379F4' }}>Zwallet</h2>
                 </section>
                 <section className="w-25 h-100 d-none d-md-flex align-items-center justify-content-between">
-                    <img src={data[0].photo} className='profile border-img' width='52px' alt="" />
+                    <img src={test} className='profile border-img' width='52px' alt="" />
                     <div onClick={closeNotif} className="d-none d-md-flex h-100 flex-column justify-content-center align-items-center">
                         <h5 className="mt-4" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
-                        {phone}
+                        +{data[0].phone}
                     </div>
                     <div className='p-4 pt-4 pb-3 d-sm-none text-width'>
                     <p style={{ color: '#7A7886' }} className='m-0 mb-2'>Hello,</p>
@@ -71,20 +69,20 @@ const Header = (props) => {
                     {notifCount? <div className='dot'><p className='text-center text-light'></p></div> : null}
                     <img className='pointer bell' src={bell} alt="" onClick={handleClick}/>
                 </section>
-                <section className="w-100 h-100 d-sm-none d-flex align-items-center justify-content-between">
-                    <img src={data[0].photo} className='profile border-img' width='52px' alt="" />
-                    <div onClick={closeNotif} className="d-none d-md-flex h-100 flex-column justify-content-center align-items-center">
+                <section className="w-100 h-100 d-md-none d-flex align-items-center justify-content-between">
+                    <img src={test} className='profile border-img me-1' width='52px' alt="" />
+                    <div onClick={closeNotif} className="d-none d-md-none h-100 flex-column justify-content-center align-items-center">
                         <h5 className="mt-4" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
-                        {phone}
+                        +{data[0].phone}
                     </div>
-                    <div className='d-sm-none w-25 pt-2 text-width'>
+                    <div className='d-md-none wp-30 w-md-25 pt-2 ps-4 text-width'>
                     <p style={{ color: '#7A7886' }} className='m-0 mb-2'>Hello,</p>
                     <h5 className="" style={{ color: "#3A3D42" }}>{data[0].Name}</h5>
                     </div>
                     {notifCount? <div className='dot'><p className='text-center text-light'></p></div> : null}
-                    <img className='pointer bell' src={bell} alt="" onClick={handleClick}/>
+                    <img className='pointer' src={bell} alt="" onClick={handleClick}/>
                 </section>
-                {notif ? 
+                {/* {notif ? 
                 <div className='notif-modal bg-light'>
                     {NOTIF}
                     {newNotif ? newNotif.map(user => 
@@ -108,7 +106,7 @@ const Header = (props) => {
                 </div>
                 :
                 null
-            }
+            } */}
             </div>
         </div>
     )
